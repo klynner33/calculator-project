@@ -1,15 +1,49 @@
-let sum = (n1, n2) => console.log(n1 + n2)
-let difference = (n1, n2) => console.log(n1 - n2)
-let product = (n1, n2) => console.log(n1 * n2)
-let quotient = (n1, n2) => console.log(n1 / n2)
+class Calculator {
+    constructor(previousOperandTextElement, currentOperandTextElement) {
+        this.previousOperandTextElement = previousOperandTextElement
+        this.currentOperandTextElement = currentOperandTextElement
+    }    
+        
+        clear() {
+            this.currentOperand = ''
+            this.previousOperand = ''
+            this.operation = undefined
+        }
+        
+        delete() {
+            
+        }
+    
+        appendNumber(number) {
 
-sum(1, 3)
-difference(5, 2)
-product(2, 3)
-quotient(6, 3)
+        }
 
-let firstNum = 0
-let operator = +
-let secondNum = 1
+        chooseOperation(operation) {
 
-const operate = (operator, num1, num2) => sum()
+        }
+
+        compute() {
+
+        }
+
+        updateDisplay() {
+
+        }
+}
+
+const numberButtons = document.querySelectorAll('[data-number]')
+const operationButtons = document.querySelectorAll('[data-operation]')
+const equalsButton = document.querySelector('[data-equals]')
+const deleteButton = document.querySelector('[data-delete]')
+const allClearButton = document.querySelector('[data-all-clear]')
+const previousOperandTextElement = document.querySelector('[data-previous-operand]')
+const currentOperandTextElement = document.querySelector('[data-current-operand]')
+
+const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement)
+
+numberButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        calculator.appendNumber(button.innerText)
+        calculator.updateDisplay()
+    })
+})
